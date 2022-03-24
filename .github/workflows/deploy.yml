@@ -44,5 +44,5 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           username: root
           script: |
-            cd /dockerDir/nginx/project/yzy-test-action-nextjs
+            cd ${{ TARGET }}
             pwd
