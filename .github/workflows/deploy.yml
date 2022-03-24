@@ -26,13 +26,13 @@ jobs:
       #     npm i
       #     npm run build
 
-      - name: 拷贝项目至服务器(这里用的ssh也可使用密码连接)
+      - name: 拷贝项目至服务器(这里用的密码也可使用ssh连接)
         uses: appleboy/scp-action@master
         with:
-          # host:
-          # password:
-          host: '${{ secrets.SERVER_IP }}'
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SERVER_HOST }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          # host: ${{ secrets.SERVER_IP }}
+          # key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: root
           source: './*'
           target: '/dockerDir/nginx/project/yzy-test-action-nextjs'
