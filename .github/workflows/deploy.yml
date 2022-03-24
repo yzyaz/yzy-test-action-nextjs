@@ -44,4 +44,4 @@ jobs:
             cd /dockerDir/nginx/project/yzy-test-action-nextjs
             npm i
             npm run build
-            npm run start
+            pm2 start npm -- run start
