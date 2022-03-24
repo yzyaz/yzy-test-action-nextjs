@@ -41,6 +41,4 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           username: root
           script: |
-            npm i
-            npm run build
-            npm run start
+            pwd
