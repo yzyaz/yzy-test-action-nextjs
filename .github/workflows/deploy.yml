@@ -21,11 +21,6 @@ jobs:
         # 使用action库
         uses: actions/checkout@master
 
-      # - name: 安装依赖 打包
-      #   run: |
-      #     npm i
-      #     npm run build
-
       - name: 拷贝项目至服务器(这里用的密码也可使用ssh连接)
         uses: appleboy/scp-action@master
         with:
@@ -39,18 +34,13 @@ jobs:
           rm: true
           strip_components: 1
 
-      # 部署至GitHub Pages
-      # - name: deploy file to GitHub Pages
-      #   uses: JamesIves/github-pages-deploy-action@v4.2.2
-      #   with:
-      #     token: ${{ secrets.ACCESS_TOKEN }}
-      #     branch: gh-pages
-      #     folder: build
-
-      # - name: ssh-action使用密码
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host:
-      #     username: root
-      #     password:
-      #     script: whoami
+      - name: 对服务器执行命令运行nextjs(这里用的密码也可使用ssh连接)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          username: root
+          script: |
+            npm i
+            npm run build
+            npm run start
