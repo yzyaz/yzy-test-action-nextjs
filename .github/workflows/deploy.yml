@@ -14,7 +14,8 @@ jobs:
   # 一个job任务，任务名为build-and-deploy
   build-and-deploy:
     # 当前步骤的环境变量
-    env: TARGET: /dockerDir/nginx/project/yzy-test-action-nextjs
+    env: 
+      TARGET: /dockerDir/nginx/project/yzy-test-action-nextjs
     # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     runs-on: ubuntu-latest
     # steps是每个Job的运行步骤，可以包含一个或多个步骤
