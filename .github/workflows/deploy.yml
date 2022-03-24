@@ -32,7 +32,7 @@ jobs:
           source: './*'
           target: '/dockerDir/nginx/project/yzy-test-action-nextjs'
           rm: true
-          strip_components: 1
+          strip_components: 0
 
       - name: 对服务器执行命令运行nextjs(这里用的密码也可使用ssh连接)
         uses: appleboy/ssh-action@master
